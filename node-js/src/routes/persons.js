@@ -29,9 +29,9 @@ module.exports = {
         });
         server.route({
             method: 'GET',
-            path: '/personAggregation',
+            path: '/aggregationTime',
             handler: async (request, h) => {
-                return service.aggregateAttributes(options.db).then(result=> h.response({counter: result}).code(200));
+                return service.calculateAggregationTime(options.db).then(result=> h.response({aggregationTimeInMs: result.aggregationTimeInMs}).code(200));
             }
         });
     }

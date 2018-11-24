@@ -39,13 +39,15 @@ module.exports = {
             console.log(err);
         }
     },
-    aggregateAttributes: async (client) => {
+    calculateAggregationTime: async (client) => {
         try {
             const db = client.db('admin');
+            const beginTime = new Date().getTime();
             return new Promise((resolve, reject) => {
                 db.collection('test').countDocuments({ age: { $gt: 25 } }, (err, result) => {
                     if (err == null) {
-                        return resolve(result);
+                        const endTime = new Date().getTime();
+                        return resolve({result: result, aggregationTimeInMs: endTime-beginTime});
                     }
                     if (err != null) {
                         return reject(err);
