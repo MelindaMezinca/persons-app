@@ -10,6 +10,7 @@
   "author": "Melinda Mezinca",
   "license": "ISC",
   "dependencies": {
+    "faker": "^4.1.0",
     "hapi": "^17.8.1",
     "mongodb": "^3.1.10"
   }
