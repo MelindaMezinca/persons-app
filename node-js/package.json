@@ -1,0 +1,16 @@
+{
+  "name": "products-app",
+  "version": "1.0.0",
+  "description": "Sample of an app using Docker",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "author": "Melinda Mezinca",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^17.8.1",
+    "mongodb": "^3.1.10"
+  }
+}
