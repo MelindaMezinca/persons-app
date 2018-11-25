@@ -1,8 +1,16 @@
 const Hapi = require('hapi');
 const personRoutesPlugin = require('./src/routes/persons');
-const dbUrl = process.env.MONGO_URL || 'mongodb://localhost:27017';
+const dbUrl = process.env.MONGO_URL || 'mongodb://localhost:27017/?autoreconnect=false';
 const mongodb = require('mongodb');
 const clientMongo = mongodb.MongoClient;
+
+const options = {
+  useNewUrlParser: true,
+  autoReconnect: false,
+  poolSize: 1,
+  reconnectTries: 0,
+  reconnectInterval: 0
+}
 
 async function start() {
   const server = Hapi.Server({
@@ -10,14 +18,14 @@ async function start() {
     port: 3000
   });
 
-  return clientMongo.connect(dbUrl)
+  return clientMongo.connect(dbUrl, options)
     .then(db => {
       console.log('The database is running');
       return server.register({
         plugin: personRoutesPlugin,
         options: {
           dbUrl: dbUrl,
-          db:db
+          db: db
         }
       })
         .then(() => server.start()
@@ -28,7 +36,7 @@ async function start() {
         })
     })
     .catch(err => {
-      console.log('Something happend when trying to connect to mongo db', err);
+      console.log('Something happened when trying to connect to mongo db', err);
       process.exit(1);
     });
 };

@@ -22,13 +22,6 @@ class Loginscreen extends Component {
     return (
       <div className="loginscreen">
         {this.state.loginscreen}
-        <div>
-          <MuiThemeProvider>
-            <div>
-               {/* <RaisedButton label={this.state.buttonLabel} primary={true} style={style} onClick={(event) => this.handleClick(event)}/> */}
-           </div>
-          </MuiThemeProvider>
-        </div>
       </div>
     );
   }

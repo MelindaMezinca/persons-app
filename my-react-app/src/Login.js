@@ -15,19 +15,20 @@ constructor(props){
   password:''
   }
  }
+
  handleClick(event) {
-//return window.confirm('Oh look, an alert!');
    return axios
     .get(apiBaseUrl)
-    .then(response => {
+    .then(response => { 
        console.log(response);
-       return window.confirm('You are successfully logged in');
+       return alert('You are successfully logged in');        
     })
     .catch(error => {
         console.log(error);
-        return window.confirm('Your username and password are invalid');
+        return alert('Your username and password are invalid');
  })
  }
+
 render() {
     return (
       <div>
@@ -49,7 +50,8 @@ render() {
                onChange = {(event,newValue) => this.setState({password:newValue})}
                />
              <br/>
-             <RaisedButton label="Submit" primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
+             <RaisedButton label="Log In" primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
+          
          </div>
          </MuiThemeProvider>
       </div>
