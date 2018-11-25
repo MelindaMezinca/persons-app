@@ -1,10 +1,24 @@
 version: '3'
 
 services:
+  # persons-app:
+  #   build: ./node-js/
+  #   command: npm run start
+  #   volumes:
+  #     - ./node-js/:/usr/app/
+  #     - /usr/app/node_modules
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - mongo
+  #   environment:
+  #     MONGO_URL: mongodb://localhost:27017
   mongo:
     container_name: mongo
     image: mongo:3.4
-    volumes:
-      - ./data:/data/db
+    environment:
+         - AUTH=no
+         - MONGODB_USER="user"
+         - MONGODB_PASS="pass"
     ports:
       - 27017:27017
