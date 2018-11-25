@@ -20,7 +20,7 @@ class Loginscreen extends Component {
   }
   render() {
     return (
-      <div className="loginscreen">
+      <div className="App">
         {this.state.loginscreen}
       </div>
     );
