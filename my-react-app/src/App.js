@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Loginscreen from './LoginScreen';
+import Loginscreen from './Loginscreen';
 import AggregationTimeScreen from './AggregationTimeScreen';
 import Menuscreen from './MenuScreen';
 import GeneratePersonsScreen from './GeneratePersonsScreen';

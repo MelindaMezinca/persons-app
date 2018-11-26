@@ -27,6 +27,4 @@ services:
   persons-app-frontend:
     build: ./my-react-app
     ports:
-      - 80:80
-    links:
-      - persons-app
+      - 1234:80
