@@ -12,7 +12,6 @@ constructor(props){
   this.handleClick = this.handleClick.bind(this);
  }
  
-
  handleClick() {
    return axios
     .post(apiBaseUrl)
@@ -22,7 +21,6 @@ constructor(props){
        const log = '/generate';
        this.props.history.push(log);
        alert('10 person had been successfully generated in the mongo DB');
-
     })
     .catch(error => {
         console.log(error);

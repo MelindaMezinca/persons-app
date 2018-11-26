@@ -12,7 +12,6 @@ class AggregationTimeScreen extends Component {
         this.state = {
             response: []
         }
-        //this.componentDidMount = this.componentDidMount.bind(this);
     }
 
     getAggregationTime() {
@@ -36,16 +35,6 @@ class AggregationTimeScreen extends Component {
     }
 
     render() {
-
-        let { response } = this.state;
-
-        // let renderItem;
-        // if (this.state.response.length) {
-        //     renderItem = this.state.response.map(function(item, i) {
-        //       return <li key={i}>{item}</li>
-        //     });
-        // }
-
         return (
             <div className="App">
                 <div>
@@ -54,8 +43,6 @@ class AggregationTimeScreen extends Component {
                             <AppBar
                                 title="Aggregation Time"
                             />
-
-                            <ul>{this.state.response.map(res => <li>{res.data}</li>)}</ul>
                         </div>
                     </MuiThemeProvider>
                 </div>

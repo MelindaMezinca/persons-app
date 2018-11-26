@@ -33,7 +33,6 @@ class App extends Component {
                       </div>
                       )}
                     /> 
-            {/* //component={Loginscreen} /> */}
             <Route path="/menu" component={Menuscreen} />
             <Route path="/generate" component={GeneratePersonsScreen} />
             <Route path="/aggregateTime" component={AggregationTimeScreen} />

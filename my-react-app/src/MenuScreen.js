@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-// import { slide as Menu } from 'react-burger-menu';
 import AppBar from 'material-ui/AppBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
@@ -27,8 +26,6 @@ class Menuscreen extends Component {
 					</MuiThemeProvider>
 			</div>
 	</div>
-			  // {/* <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a> */}
-			// </Menu>
 		  );
 	};
 }

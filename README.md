@@ -11,3 +11,7 @@ For nginx: from my-react-app
 
 From parent app:
 - docker-compose up --build
+
+The user and the password are:
+- user
+- pass
