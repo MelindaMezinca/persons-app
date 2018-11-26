@@ -8,6 +8,7 @@ module.exports = {
         server.route({
             method: 'GET',
             path: '/test',
+            options: {cors:true},
             handler: (request, h) => {
                 return 'hello, world';
             }
@@ -16,6 +17,7 @@ module.exports = {
         server.route({
             method: 'GET',
             path: '/dbHealth',
+            options: {cors:true},
             handler: async (request, h) => {
                 return service.getDbConnectionHealth(options.db)
                     .then(result => h.response(result).code(200))
@@ -27,6 +29,7 @@ module.exports = {
         server.route({
             method: 'POST',
             path: '/person',
+            options: {cors:true},
             handler: async (request, h) => {
                 return service.generatePersons(options.db)
                     .then(result => h.response({ result: result }).code(201))
@@ -39,6 +42,7 @@ module.exports = {
         server.route({
             method: 'GET',
             path: '/aggregationTime',
+            options: {cors:true},
             handler: async (request, h) => {
                 return service.calculateAggregationTime(options.db)
                     .then(result => h.response({ aggregationTimeInMs: result.aggregationTimeInMs }).code(200))

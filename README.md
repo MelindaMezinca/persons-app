@@ -4,12 +4,13 @@ Instructions to run the app:
 
 From node-js folder:
 - npm install
-- docker build -t node-js:latest ./node-js
-
 
 For nginx: from my-react-app 
 - npm run build 
-- docker build -t my-react-app:latest ./my-react-app
+- npm start
+- npm install
 
 From parent app:
+- docker build -t my-react-app:latest ./my-react-app
+- docker build -t node-js:latest ./node-js
 - docker-compose up

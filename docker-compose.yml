@@ -2,41 +2,18 @@ version: '3'
 
 services:
   persons-app:
-    # build: ./node-js
-    image: node-js:latest
+    build: ./node-js
     environment:
       - MONGO_URL=mongodb://mongo:27017/
     command: "npm start"
-    # volumes:
-    #   - ./node-js:/usr/app/
+    volumes:
+      - ./node-js:/usr/app/
     ports:
       - 8080:3000
     links:
       - mongo
     depends_on:
       - mongo
-  #   image: node:alpine
-  #   volumes:
-  #     - ./node-js:/app
-  #   working_dir: /app
-  #   depends_on:
-  #     - mongo
-  #   environment:
-  #     NODE_ENV: development
-  #   ports:
-  #     - 3000:3000
-  #   command: npm run start
-    # build: ./node-js/
-    # command: npm run start
-    # volumes:
-    #   - ./node-js/:/usr/app/
-    #   - /usr/app/node_modules
-    # ports:
-    #   - "3000:3000"
-    # depends_on:
-    #   - mongo
-    # environment:
-    #   MONGO_URL: mongodb://localhost:27017
   mongo:
     container_name: mongo
     image: mongo:3.4
@@ -48,4 +25,8 @@ services:
       - 27017:27017
 
   persons-app-frontend:
-    image: my-react-app:latest
+    build: ./my-react-app
+    ports:
+      - 80:80
+    links:
+      - persons-app

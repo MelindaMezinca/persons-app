@@ -1,4 +1,3 @@
-// get, post, aggregate
 'use strict';
 const faker = require('faker');
 

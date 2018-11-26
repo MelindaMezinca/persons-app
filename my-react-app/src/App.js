@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Loginscreen from './LoginScreen';
 import AggregationTimeScreen from './AggregationTimeScreen';
-import MenuScreen from './MenuScreen';
+import Menuscreen from './MenuScreen';
 import GeneratePersonsScreen from './GeneratePersonsScreen';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -23,23 +23,28 @@ class App extends Component {
   }
   render() {
     return (
-      // <div className="App">
-      //   {this.state.loginPage}
-      // </div>
-        <Router>
-          <Switch>
-            <Route path='/' component={Loginscreen} />
-            <Route path="/menu" component={MenuScreen} />
+      <Router>
+        <Switch>
+          <Route exact path='/' render={props => (
+            <div>
+              <Loginscreen
+                {...props}
+                 />
+                      </div>
+                      )}
+                    /> 
+            {/* //component={Loginscreen} /> */}
+            <Route path="/menu" component={Menuscreen} />
             <Route path="/generate" component={GeneratePersonsScreen} />
-            <Route path="/aggregationTime" component={AggregationTimeScreen} />
+            <Route path="/aggregateTime" component={AggregationTimeScreen} />
           </Switch>
-        </Router>   
-    );
-  }
-}
-
+        </Router>
+        );
+      }
+    }
+    
 const style = {
-  margin: 15,
-};
-
+          margin: 15,
+      };
+      
 export default App;
